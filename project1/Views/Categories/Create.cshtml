@@ -1,0 +1,48 @@
+﻿@using project1.ViewModel
+@model CategoryVM
+@section Title {
+    @((Model?.Id == null || Model?.Id == -1) ? "Create" : "Edit") Category
+}
+@section HPath {
+                            Categories Page/ @((Model?.Id == null || Model?.Id == -1) ? "Create" : "Edit")
+
+}
+
+<div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header">
+            <h3 class="card-title">
+                @((Model?.Id == null || Model?.Id ==-1 ) ? "New CATEGORY" : "Edit CATEGORY")
+             
+            </h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body" style="display: block;">
+
+            <form  asp-controller="Categories">
+                        <div class="form-group" >
+                            <label asp-for="Name"></label>
+                            <input type="text" asp-for="Name" class="form-control">
+                            <span asp-validation-for="Name" class="text-danger"></span>                     
+                        </div>
+
+                    <div class="col-12">
+                    <input type="submit" value=@((Model?.Id == null || Model?.Id ==-1 ) ? "Create new Category":"update Category" ) class="btn btn-success ">
+                    <a asp-action="Index" asp-controller="Categories" class="btn btn-default float-right ">Cancel</a>
+                    </div>
+                            </form>
+                    </div>
+
+                </div>
+
+            </div>
+           
+ 
+       
+            
+
+

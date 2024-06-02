@@ -1,0 +1,48 @@
+﻿@using project1.ViewModel
+@model AutherFormVM
+@section Title {
+    @((Model?.Id == null || Model?.Id == -1) ? "Create" : "Edit") Auther
+}
+@section HPath {
+                                Authers Page/ @((Model?.Id == null || Model?.Id == -1) ? "Create" : "Edit")
+
+}
+
+<div class="col-md-12">
+    <div class="card ">
+        <div class="card-header">
+            <h3 class="card-title">
+                @((Model?.Id == null || Model?.Id == -1) ? "New AUTHER" : "Edit AUTHER")
+
+            </h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body" style="display: block;">
+
+            <form asp-controller="Authers">
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input type="text" asp-for="Name" class="form-control">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <input type="submit" value=@((Model?.Id == null || Model?.Id ==-1 ) ? "Create new Auther":"update Auther" ) class="btn btn-success ">
+                    <a asp-action="Index" asp-controller="Authers" class="btn btn-default float-right ">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
